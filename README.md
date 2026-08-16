@@ -128,19 +128,19 @@ I configured an email alert at **50% of the budget**, or **$10**. This gives the
 
 ## Decisions & Why
 
-- Used groups and scoped roles to manage access. This makes permissions easier to manage and avoids giving users more control than they need.
+- Groups and scoped roles were used to make access easier to manage and to avoid giving users more permissions than they need.
 
-- Stored sensitive credentials in Azure Key Vault. This keeps passwords and service secrets in a protected location instead of normal notes, files, or scripts.
+- Sensitive credentials were stored in Azure Key Vault so passwords and service secrets would not be kept in normal files, notes, or scripts.
 
-- Used Azure Policy and budget alerts to keep the environment under control. Policy helps keep resources organized and consistent, while budget alerts give an early warning if cloud costs start increasing.
+- Azure Policy and budget alerts were added to help keep resources organized and provide an early warning if cloud costs started increasing.
 
 ## What This Demonstrates
 
-- **Managing Azure users, groups, and permissions:** Microsoft Entra ID and Azure RBAC were used to control who could manage the Key Vault and virtual machine.
+- Microsoft Entra ID and Azure RBAC were used to manage who could access and control the Key Vault and virtual machine.
 
-- **Protecting and managing cloud resources:** Azure Key Vault was used for sensitive information, while Azure Policy helped enforce rules for resources in the environment.
+- Azure Key Vault and Azure Policy were used to protect sensitive information and keep cloud resources organized.
 
-- **Running and monitoring a school cloud environment:** A Windows Server VM was deployed and tested, and Azure Cost Management was used to track spending and create budget alerts.
+- A Windows Server VM was deployed and tested, while Azure Cost Management was used to monitor spending and create budget alerts.
 
 ## Why This Project Matters
 
