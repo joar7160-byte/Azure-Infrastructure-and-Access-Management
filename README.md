@@ -128,11 +128,15 @@ I configured an email alert at **50% of the budget**, or **$10**. This gives the
 
 <img src="screenshots/17-lab-budget-alert-details.png" width="900"><br><br>
 
-## Troubleshooting Notes
+## Decisions & Significance
 
-- The default VM size (Standard_D2 series shown at first) came back as unavailable for the Azure for Students subscription in East US 2; resolved by clearing the size filter and selecting from the full list of sizes actually available for the subscription (Standard_D2s_v3)
-- Originally planned to import a private key into Key Vault, which is an SSH-based workflow; since the VM was deployed as Windows Server using RDP and password authentication instead, there was no private key to import. Adjusted the vault to store a placeholder service credential and the VM admin password as secrets instead, which better reflects how Key Vault is actually used for credential protection
-- Forgot the VM admin username after switching OS choices mid-build; resolved using the VM's built-in password reset option rather than rebuilding the VM
+- **Scoped roles assigned through a security group.** A district doesn't want every technician holding admin rights over every system; scoped RBAC roles mean a helpdesk staffer can manage the one server they're responsible for, not the whole subscription, the same principle behind delegated access in a school's AD environment.
+
+- **Key Vault instead of plaintext credentials.** Student and staff data protection is a real compliance concern for schools, so service and admin credentials were stored in an access-controlled vault rather than a notes file anyone in the building could stumble on.
+
+- **Tag-based Azure Policy for asset tracking.** A district juggling hundreds of Chromebooks and staff devices across buildings needs resources identifiable at a glance; enforced tagging keeps that consistent automatically instead of depending on every technician remembering to label things by hand.
+
+- **A monthly budget with an alert threshold.** School technology budgets are fixed and often tight, so a 50% spending alert gives the district a warning while there's still time to adjust, instead of finding out about overspend after the money's already gone.
 
 ## What This Demonstrates
 
