@@ -125,28 +125,22 @@ I configured an email alert at **50% of the budget**, or **$10**. This gives the
 
 <img src="screenshots/17-lab-budget-alert-details.png" width="900"><br><br>
 
-## Decisions & Why
+Decisions & Why
 
-- **Used a security group instead of assigning every permission individually.** This makes access easier to manage because staff can be added to or removed from one group as responsibilities change.
+Used groups and scoped roles to manage access. This makes permissions easier to manage and avoids giving users more control than they need.
 
-- **Stored passwords and service secrets in Azure Key Vault.** I chose Key Vault so sensitive information would be kept in a dedicated secure location instead of being written directly into notes, scripts, or documentation.
+Stored sensitive credentials in Azure Key Vault. This keeps passwords and service secrets in a protected location instead of normal notes, files, or scripts.
 
-- **Assigned permissions at the resource level when possible.** This keeps access focused on the resources someone actually needs to manage instead of giving broader control over the entire Azure environment.
+Used Azure Policy and budget alerts to keep the environment under control. Policy helps keep resources organized and consistent, while budget alerts give an early warning if cloud costs start increasing.
 
-- **Grouped multiple rules into one Azure Policy initiative.** This makes the school environment easier to manage because related rules can be assigned and reviewed together.
+What This Demonstrates
 
-- **Added a low monthly budget and early alert.** Since this is a lab environment, the goal was to catch unexpected spending quickly rather than waiting until the full budget was reached.
+Managing Azure users, groups, and permissions: Microsoft Entra ID and Azure RBAC were used to control who could manage the Key Vault and virtual machine.
 
-## What This Demonstrates
+Protecting and managing cloud resources: Azure Key Vault was used for sensitive information, while Azure Policy helped enforce rules for resources in the environment.
 
-- **Managing access for IT staff:** I used Microsoft Entra ID groups and Azure roles to control who could manage the Key Vault and virtual machine.
+Running and monitoring a school cloud environment: A Windows Server VM was deployed and tested, and Azure Cost Management was used to track spending and create budget alerts.
 
-- **Protecting sensitive information:** I used Azure Key Vault to store passwords and service secrets instead of leaving them in normal files or notes.
+Why This Project Matters
 
-- **Keeping cloud resources organized:** I used Azure Policy to apply basic rules and check whether the virtual machine followed those rules.
-
-- **Monitoring cloud spending:** I created a monthly budget and alert so the school IT team could see costs early and avoid unexpected charges.
-
-## Why This Project Matters
-
-School IT teams often manage many systems with limited staff, so it is important to keep access simple, credentials protected, resources organized, and costs visible. This project shows a practical way to use Azure for those everyday administrative needs while keeping the environment easier to manage as it grows.
+School IT teams often manage many systems with limited staff, so it is important to keep access simple, credentials protected, resources organized, and costs visible. This project shows a practical way to use Azure for those everyday administrative needs while keeping the environment easier to manage as it grow
