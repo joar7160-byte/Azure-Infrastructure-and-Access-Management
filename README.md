@@ -1,6 +1,5 @@
 # Azure-Infrastructure-and-Access-Management Lab
 
-
 ## Scenario
 
 A school IT department needs a secure way to manage its cloud systems, control who has access, and keep track of costs. This project creates an Azure environment where IT staff can safely manage a school server, protect sensitive login information, and follow rules for how cloud resources are used. Budget monitoring is also added so the school can avoid unexpected cloud expenses.
