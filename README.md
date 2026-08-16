@@ -128,11 +128,11 @@ I configured an email alert at **50% of the budget**, or **$10**. This gives the
 
 ## Decisions & Why
 
-- **Used groups and scoped roles to manage access.** This makes permissions easier to manage and avoids giving users more control than they need.
+- Used groups and scoped roles to manage access. This makes permissions easier to manage and avoids giving users more control than they need.
 
-- **Stored sensitive credentials in Azure Key Vault.** This keeps passwords and service secrets in a protected location instead of normal notes, files, or scripts.
+- Stored sensitive credentials in Azure Key Vault. This keeps passwords and service secrets in a protected location instead of normal notes, files, or scripts.
 
-- **Used Azure Policy and budget alerts to keep the environment under control.** Policy helps keep resources organized and consistent, while budget alerts give an early warning if cloud costs start increasing.
+- Used Azure Policy and budget alerts to keep the environment under control. Policy helps keep resources organized and consistent, while budget alerts give an early warning if cloud costs start increasing.
 
 ## What This Demonstrates
 
