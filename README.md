@@ -1,8 +1,10 @@
-# Azure-Infrastructure-and-Access-Management Lab
+# Azure Infrastructure and Access Management Lab
 
-## Scenario
+## Overview
 
-A school IT department needs a secure way to manage its cloud systems, control who has access, and keep track of costs. This project creates an Azure environment where IT staff can safely manage a school server, protect sensitive login information, and follow rules for how cloud resources are used. Budget monitoring is also added so the school can avoid unexpected cloud expenses.
+A school IT department needs a secure way to manage its cloud systems, control who has access, and keep track of costs. This project builds that environment in Azure: a school server that IT staff can manage under least-privilege access, sensitive credentials protected in a secure vault, resource tagging enforced through policy, and a monthly budget with spending alerts so the district doesn't get hit with unexpected cloud costs.
+
+**Scope:** 1 resource group, 1 virtual machine, 1 Entra security group, 1 Key Vault with 2 secrets, 1 policy initiative with 3 policies, 1 monthly budget with alert thresholds, all verified end to end.
 
 ## Skills & Tools
 
@@ -28,7 +30,7 @@ A school IT department needs a secure way to manage its cloud systems, control w
 - **Policy Initiative:** `AssetTaggingInitiative`
 - **Budget:** `LabBudget`
 
-## Implementation
+## Steps
 
 ### 1. Created a Resource Group for the School IT Lab
 
@@ -126,21 +128,17 @@ I configured an email alert at **50% of the budget**, or **$10**. This gives the
 
 <img src="screenshots/17-lab-budget-alert-details.png" width="900"><br><br>
 
-## Decisions & Why
+## Troubleshooting Notes
 
-- Groups and scoped roles were used to make access easier to manage and to avoid giving users more permissions than they need.
-
-- Sensitive credentials were stored in Azure Key Vault so passwords and service secrets would not be kept in normal files, notes, or scripts.
-
-- Azure Policy and budget alerts were added to help keep resources organized and provide an early warning if cloud costs started increasing.
+- The default VM size (Standard_D2 series shown at first) came back as unavailable for the Azure for Students subscription in East US 2; resolved by clearing the size filter and selecting from the full list of sizes actually available for the subscription (Standard_D2s_v3)
+- Originally planned to import a private key into Key Vault, which is an SSH-based workflow; since the VM was deployed as Windows Server using RDP and password authentication instead, there was no private key to import. Adjusted the vault to store a placeholder service credential and the VM admin password as secrets instead, which better reflects how Key Vault is actually used for credential protection
+- Forgot the VM admin username after switching OS choices mid-build; resolved using the VM's built-in password reset option rather than rebuilding the VM
 
 ## What This Demonstrates
 
-- Microsoft Entra ID and Azure RBAC were used to manage who could access and control the Key Vault and virtual machine.
-
-- Azure Key Vault and Azure Policy were used to protect sensitive information and keep cloud resources organized.
-
-- A Windows Server VM was deployed and tested, while Azure Cost Management was used to monitor spending and create budget alerts.
+- Microsoft Entra ID and Azure RBAC were used to manage who could access and control the Key Vault and virtual machine
+- Azure Key Vault and Azure Policy were used to protect sensitive information and keep cloud resources organized
+- A Windows Server VM was deployed and tested, while Azure Cost Management was used to monitor spending and create budget alerts
 
 ## Why This Project Matters
 
